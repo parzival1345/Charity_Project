@@ -36,7 +36,7 @@ class AuthenticationController extends Controller
             'phone_number' => $request->p_number,
             'email' => $request->email,
             'password' => Hash::make($request->pass),
-            'status' => 'deny'
+            'sms_confirmation' => 'no'
         ]);
         event(new SmsEvent($user));
     }

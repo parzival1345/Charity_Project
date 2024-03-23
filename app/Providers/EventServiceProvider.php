@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\Register;
+use App\Events\SmsEvent;
 use App\Listeners\SmsListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -20,7 +21,7 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        Register::class => [
+        SmsEvent::class => [
             SmsListener::class,
         ],
     ];

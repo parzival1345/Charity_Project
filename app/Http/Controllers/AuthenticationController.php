@@ -21,7 +21,6 @@ class AuthenticationController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->pass)
         ]);
-        $sms = $this->sms();
         return response()->json([
             'status' => true,
             'message' => 'register process working well'
@@ -39,5 +38,14 @@ class AuthenticationController extends Controller
             'sms_confirmation' => 'no'
         ]);
         event(new SmsEvent($user));
+        return response()->json([
+            'status' => true,
+            'message' => 'sms send'
+        ]);
+    }
+
+    public function confirmation_code()
+    {
+
     }
 }

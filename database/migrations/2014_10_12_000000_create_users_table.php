@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('sms_confirmation' , ['yes','no']);
-            $table->enum('status' , ['deny','accept']);
+            $table->enum('status' , ['deny','accept'])->default('deny');
             $table->timestamps();
         });
     }

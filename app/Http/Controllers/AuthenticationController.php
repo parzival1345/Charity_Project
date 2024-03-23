@@ -19,7 +19,8 @@ class AuthenticationController extends Controller
             'last_name' => $request->l_name,
             'phone_number' => $request->p_number,
             'email' => $request->email,
-            'password' => Hash::make($request->pass)
+            'password' => Hash::make($request->pass),
+            'status' => 'accept'
         ]);
         return response()->json([
             'status' => true,

@@ -24,7 +24,7 @@ class RegisterRequest extends FormRequest
         return [
             'f_name' => 'required',
             'l_name' => 'required',
-            'p_number' => 'required',
+            'phone_number' => 'required',
             'pass' => 'required_with:password_confirmation',
             'password_confirmation' => 'required|same:pass'
         ];

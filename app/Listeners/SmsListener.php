@@ -29,7 +29,13 @@ class SmsListener
                 'Content-Length: ' . strlen($data_string))
         );
         $result = curl_exec($ch);
+        $code = json_decode($result);
         curl_close($ch);
+        Save_code::create([
+            'user_id' => $event->user->id,
+            'phone_number' => $event->user->phone_number,
+            'one_time_password' => $code->code
+        ]);
 
         return $result;
     }

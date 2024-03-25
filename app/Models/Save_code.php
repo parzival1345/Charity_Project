@@ -10,4 +10,9 @@ class Save_code extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function user()
+    {
+        $this->belongsTo(User::class);
+    }
 }

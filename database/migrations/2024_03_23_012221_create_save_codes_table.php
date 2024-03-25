@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('save_codes', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->index()->unsigned();
+            $table->string('phone_number')->nullable();
+            $table->string('one_time_password')->nullable();
+            $table->time('expire_at')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

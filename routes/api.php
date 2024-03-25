@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\SmsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::post('/register' , [AuthenticationController::class , 'register']);
-//Route::post('/sms' , [AuthenticationController::class , 'sms']);
+Route::post('/login/{id}' , [AuthenticationController::class , 'login']);
+Route::post('/sms_check/{id}' , [SmsController::class , 'sms_check']);
 

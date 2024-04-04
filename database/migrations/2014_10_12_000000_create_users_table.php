@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('phone_number')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('sms_confirmation' , ['yes','no'])->default('no');
-            $table->enum('status' , ['deny','accept'])->default('deny');
+            $table->enum('phone_number_verified_at' , ['yes','no'])->default('no');
+            $table->enum('status' , ['benefaction' , 'not_benefaction'])->default('not_benefaction');
+            $table->string('account_amount');
+            $table->enum('role' , ['admin' , 'user'])->default('user');
             $table->timestamps();
         });
     }
